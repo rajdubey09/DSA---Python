@@ -1,0 +1,50 @@
+def add_node(v):
+    global nodes_count
+    # print("Add Node Called",v)
+    if v in nodes:
+        print("Node",v,"already Exists in Graph...")
+    else:
+        nodes_count += 1 
+        nodes.append(v)
+        
+        for r in graph:
+            r.append(0)
+            
+        temp = []
+        for i in range(nodes_count):
+            temp.append(0)
+        
+        graph.append(temp)
+
+def add_edge(e1,e2):
+    # print("Add Edge Called",e1,e2)
+    if e1 and e2 not in nodes:
+        print("Node doesn't Exists in Graph...")
+    else:
+        i1 = nodes.index(e1)
+        i2 = nodes.index(e2)
+        print("Indexes",i1,i2)
+        
+        graph[i1][i2] = 1 
+        graph[i2][i1] = 1 
+
+def print_graph():
+    # print("Print Graph Called")
+    for i in range(nodes_count):
+        for j in range(nodes_count):
+            print(graph[i][j], end=" ")
+        print()
+
+nodes = []
+graph = []
+nodes_count = 0
+
+add_node("A")
+add_node("B")
+add_node("C")
+add_node("D")
+add_edge("A","C")
+add_edge("C","D")
+
+print("Nodes --->",nodes)
+print_graph()
