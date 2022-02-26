@@ -1,3 +1,5 @@
+------------------ Graph Insertion performed using Adjacency Matrix ------------------
+#Function to Add Node in Graph
 def add_node(v):
     global nodes_count
     # print("Add Node Called",v)
@@ -16,6 +18,7 @@ def add_node(v):
         
         graph.append(temp)
 
+#Function to Add UnDirected Edge in Graph with no Cost
 def add_edge(e1,e2):
     # print("Add Edge Called",e1,e2)
     if e1 and e2 not in nodes:
@@ -27,7 +30,8 @@ def add_edge(e1,e2):
         
         graph[i1][i2] = 1 
         graph[i2][i1] = 1 
-        
+ 
+#Function to Add UnDirected Node in Graph with some Cost 
 def add_weighted_edge(e1,e2,cost):
     if e1 and e2 not in nodes:
         print("Node doesn't Exists in Graph...",e1,"or",e2)
@@ -37,7 +41,8 @@ def add_weighted_edge(e1,e2,cost):
         
         graph[i1][i2] = cost
         graph[i2][i1] = cost
-        
+
+#Function to Add Directed Node in Graph with some Cost
 def add_directed_weighted_edge(e1,e2,cost):
     if e1 and e2 not in nodes:
         print("Node doesn't Exists in Graph...")
@@ -46,7 +51,7 @@ def add_directed_weighted_edge(e1,e2,cost):
         i2 = nodes.index(e2)
         
         graph[i1][i2] = cost
-
+#Function to Print Graph in Matrix Form
 def print_graph():
     # print("Print Graph Called")
     for i in range(nodes_count):
@@ -54,8 +59,8 @@ def print_graph():
             print(graph[i][j], end=" ")
         print()
 
-nodes = []
-graph = []
+nodes = [] #varialbe to store Nodes 
+graph = [] #graph variable to store costs
 nodes_count = 0
 
 add_node("A")
