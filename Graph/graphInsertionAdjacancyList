@@ -1,0 +1,28 @@
+#Graph Insertion using Adjacency list
+def add_node(v):
+    if v in nodes:
+        print("Node",v,"already exists in Graph")
+    else:
+        nodes.append(v)
+        graph[v] = []
+        
+def add_edge(e1,e2):
+    if e1 and e2 not in nodes:
+        print("Nodes doesn't Exists")
+    else:
+        graph[e1].append(e2)
+        graph[e2].append(e1)
+
+nodes = []
+graph = {}
+
+add_node("A")
+add_node("B")
+add_edge("A","B")
+add_node("C")
+add_edge("A","C")
+add_node("D")
+add_node("E")
+add_edge("E","A")
+print("Nodes --->",nodes)
+print(graph)
